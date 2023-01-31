@@ -24,6 +24,7 @@
     color: white;
     font-family: 'Merriweather', serif;
     font-size: clamp(1rem, 2rem, 2.5rem);
+    opacity: 1;
 }
 
 .nav-menu {

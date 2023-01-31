@@ -4,6 +4,8 @@
     width: 100%;
     align-items: center;
     justify-content: center;
+      scroll-snap-stop: always;
+
 }
 
 .projects-content {

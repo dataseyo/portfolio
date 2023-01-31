@@ -11,7 +11,8 @@ import {
   Nav,
   About,
   Projects,
-  Particles
+  Particles,
+  Pane
 } from './components'
 import {
   ScrollHandler
@@ -62,11 +63,12 @@ function App() {
           <ScrollControls pages={3} damping={0.1}>
             {/* MODELS */}
             <Particles />
+            
             <Scroll>
             </Scroll>
 
             {/* REACT | HTML */}
-            <Scroll html style={{width: '100%'}}>  
+            <Scroll html style={{width: '100%', scrollSnapStop: "always"}}>  
                 <About/>
                 <Projects/>
             </Scroll>

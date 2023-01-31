@@ -1,6 +1,6 @@
 # Portfolio
 
-# GLSL Shaders with React Three Fiber
+## GLSL Shaders with React Three Fiber
 
 While the general flowing mountain range/wave effect is acheieved with Perlin noise, I used pointer events to track the mouse coordinates, and took the Euclidean distance between the mouse position and the position of the shader vertices in order to render both a color effect and a displacement effect around the mouse. 
 
