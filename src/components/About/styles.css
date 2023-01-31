@@ -1,0 +1,38 @@
+/* .about__container {
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    width: clamp(200px, 45%, 600px);
+} */
+
+.about__container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    width: clamp(250px, 45%, 500px);
+    justify-content: center;
+    align-items: center;
+}
+
+.about-title {
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    font-size: clamp(2rem, 4.5rem, 5rem);
+    margin-bottom: 0px;
+}
+
+.about-text {
+    color: white;
+    font-family: 'Merriweather', serif;
+    font-size: clamp(1rem, 1.3rem, 1.5rem);
+    align-self: flex-start;
+}

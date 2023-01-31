@@ -1,0 +1,37 @@
+.nav__container {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    width: 100%;
+}
+
+.nav-scroll {
+    background: rgba( 255, 255, 255, 0.05);
+    /* box-shadow: 0 8px 32px 0 rgba( 153, 204, 234, 0.22 ); */
+    backdrop-filter: blur( 3px );
+    -webkit-backdrop-filter: blur( 2px );
+    /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
+}
+
+.nav-title {
+    margin: 8px;
+}
+
+.nav-title h1 {
+    color: white;
+    font-family: 'Merriweather', serif;
+    font-size: clamp(1rem, 2rem, 2.5rem);
+}
+
+.nav-menu {
+    margin: 8px;
+}
+
+.nav-menu-icon {
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+}

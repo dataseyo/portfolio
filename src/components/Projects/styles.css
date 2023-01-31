@@ -1,0 +1,27 @@
+.projects__container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.projects-content {
+    display: flex;
+    flex-direction: column;
+    width: clamp(250px, 45%, 500px);
+}
+
+.projects-title {
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    font-size: clamp(2rem, 4.5rem, 5rem);
+    margin-bottom: 0px;
+}
+
+.projects-text {
+    color: white;
+    font-family: 'Merriweather', serif;
+    font-size: clamp(1rem, 1.3rem, 1.5rem);
+    align-self: flex-start;
+}
