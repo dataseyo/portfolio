@@ -5,6 +5,7 @@ import React, { useRef, useMemo } from 'react'
 import { Vector2, Vector3, DoubleSide, Points, BufferGeometry, Material } from 'three'
 import { useFrame, ThreeEvent } from '@react-three/fiber'
 import { useScroll } from '@react-three/drei'
+import useScreenSize from '../../hooks/useScreenSize'
 
 // SHADERS
 import fragmentShader from './fragment.glsl?raw'
@@ -13,8 +14,11 @@ import vertexShader from './vertex.glsl?raw'
 const Particles = () => {
     const particlesRef = useRef<React.Ref<Points<BufferGeometry, Material | Material[]>> | undefined | any>()
 
+    // WINDOW
+    const {width, height} = useScreenSize()
+
     // SHADER UNIFORMS
-    const uniforms = {
+    const uniforms = useMemo(() => ({
         u_mouse: {
             value: new Vector2()
         },
@@ -30,7 +34,7 @@ const Particles = () => {
         u_scroll_amount: {
             value: 0.0
         }
-    }
+    }), [])
 
     // CLOCK AND SCROLL
     const scroll = useScroll()
@@ -41,7 +45,7 @@ const Particles = () => {
     })
 
     // GENERATE PARTICLE POSITIONS
-    const count = 10000 - scroll.offset
+    const count = 10000
     const positions = useMemo(() => {
         const positions = new Float32Array(count * 3)
 
@@ -60,8 +64,11 @@ const Particles = () => {
     const handlePointer = (event: ThreeEvent<PointerEvent> | ThreeEvent<MouseEvent>) => {
         uniforms.u_intersection.value = event.intersections[0].point
 
-        uniforms.u_ratio.value.x = window.innerWidth
-        uniforms.u_ratio.value.y = window.innerHeight
+        if (width && height) {
+            uniforms.u_ratio.value.x = width
+            uniforms.u_ratio.value.y = height
+        }
+        
     }
 
     return (

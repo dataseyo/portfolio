@@ -12,7 +12,7 @@ import {
   About,
   Projects,
   Particles,
-  Pane
+  Sphere
 } from './components'
 import {
   ScrollHandler
@@ -20,6 +20,10 @@ import {
 import {
   ScrollContextProvider
 } from './context/ScrollContext'
+import {
+  ScreenContextProvider
+} from './context/ScreenContext'
+import useScreenSize from './hooks/useScreenSize'
 
 // CAMERA
 const Camera = () => {
@@ -31,6 +35,7 @@ const Camera = () => {
 
 // APP
 function App() {
+  // LOADING
   const { active, progress, errors, item, loaded, total } = useProgress()
   const LoaderScreen = () => {
     console.log(progress)
@@ -41,6 +46,10 @@ function App() {
     )
   }
 
+  // SCREEN SIZE
+  const screenSize = useScreenSize()
+
+  // APP
   return (
     <div className="App">
       <ScrollContextProvider>
@@ -54,10 +63,8 @@ function App() {
             position: [0, -4, 3]
           }}
         >
-          {/* <OrbitControls rotation={[-90, Math.PI, 0]}/> */}
-          {/* <Environment 
-            preset="city"
-          /> */}
+          {/* <OrbitControls/> */}
+          <ambientLight />
           <color attach="background" args={["black"]} />
           <Camera/>
           <ScrollControls pages={3} damping={0.1}>
@@ -65,6 +72,8 @@ function App() {
             <Particles />
             
             <Scroll>
+              <mesh/>
+              {/* <Sphere /> */}
             </Scroll>
 
             {/* REACT | HTML */}
