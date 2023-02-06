@@ -16,6 +16,6 @@ void main() {
     if (dist < 0.75) {
         gl_FragColor = vec4(color / fade, 1.0);
     } else {
-        gl_FragColor = vec4((color / fade) * sin(v_displacement) * 20.0 + (u_scroll_amount * 10.0), 1.0);
+        gl_FragColor = vec4((color / fade) * sin(v_displacement) * 5.0 + (u_scroll_amount * 3.0), 1.0);
     }
 }

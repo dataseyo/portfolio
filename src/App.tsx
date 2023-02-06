@@ -12,6 +12,7 @@ import {
   About,
   Projects,
   Particles,
+  Hero,
   Sphere
 } from './components'
 import {
@@ -20,10 +21,7 @@ import {
 import {
   ScrollContextProvider
 } from './context/ScrollContext'
-import {
-  ScreenContextProvider
-} from './context/ScreenContext'
-import useScreenSize from './hooks/useScreenSize'
+
 
 // CAMERA
 const Camera = () => {
@@ -46,8 +44,6 @@ function App() {
     )
   }
 
-  // SCREEN SIZE
-  const screenSize = useScreenSize()
 
   // APP
   return (
@@ -60,27 +56,40 @@ function App() {
             fov: 45,
             near: 0.1,
             far: 200,
-            position: [0, -4, 3]
+            position: [0, -4, 3],
+            // zoom: 2.5
           }}
+          // position: [0, -4, 3]
+
         >
-          {/* <OrbitControls/> */}
-          <ambientLight />
+          {/* <axesHelper /> */}
+          {/* <OrbitControls
+            position={[0, 0, 0]}
+            maxDistance={4}
+            minDistance={1}
+            enableZoom={false}
+            enableRotate={false}
+            minAzimuthAngle={0}
+            maxAzimuthAngle={Math.PI / 2}
+          /> */}
+          <ambientLight color="white"/>
+          <Environment preset="city"/>
           <color attach="background" args={["black"]} />
           <Camera/>
-          <ScrollControls pages={3} damping={0.1}>
+          <ScrollControls pages={3} damping={0.1} style={{scrollbarWidth: "none", color: "black"}}>
             {/* MODELS */}
             <Particles />
-            
-            <Scroll>
-              <mesh/>
-              {/* <Sphere /> */}
-            </Scroll>
+            <Sphere />
+            {/* <Scroll style={{height: "100vh"}}>
+
+            </Scroll> */}
 
             {/* REACT | HTML */}
-            <Scroll html style={{width: '100%', scrollSnapStop: "always"}}>  
+            {/* <Scroll html style={{width: '100%', scrollSnapStop: "always"}}>
+                <Hero/>  
                 <About/>
                 <Projects/>
-            </Scroll>
+            </Scroll> */}
             <ScrollHandler/>
           </ScrollControls>
 

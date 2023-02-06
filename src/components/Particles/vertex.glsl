@@ -101,7 +101,7 @@ void main() {
     }
 
     // apply noise
-    v_displacement = cnoise(position + vec3(0.4 * u_time));
+    v_displacement = cnoise(position + vec3(0.15 * u_time));
 
     vec4 modelPosition = modelMatrix * vec4(transformed + v_displacement * 0.04, 1.0);
  
@@ -109,6 +109,6 @@ void main() {
 
     vec4 viewPosition = viewMatrix * modelPosition;
     vec4 projectedPosition = projectionMatrix * viewPosition;
-    gl_PointSize = 2.5;
+    gl_PointSize = 2.2;
     gl_Position = projectedPosition;
 }

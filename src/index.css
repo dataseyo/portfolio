@@ -10,4 +10,7 @@ html {
   top: 0;
   left: 0;
   background-color: black;
+  min-width: 350px;
 }
+
+

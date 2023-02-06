@@ -23,7 +23,7 @@ const Nav = () => {
   }
 
   return (
-    <>
+    <div className="nav">
     <div className={`nav__container ${scrollContext?.scroll ? "nav-scroll" : ""}`}>
         <motion.div 
           className="nav-title"
@@ -35,20 +35,21 @@ const Nav = () => {
           <h1 className="nav-title">Zachary Shifrel</h1>
         </motion.div>
         {
-          width && width > 600 && 
+          width && width > 700 && 
           <div className="nav-menu">
             {/* <FaBars className="nav-menu-icon"/> */}
             <h3 className="nav-menu-item">About</h3>
             <h3 className="nav-menu-item">Projects</h3>
             <h3 className="nav-menu-item">Contact</h3>
+            <h3 className="nav-menu-item">Settings</h3>
           </div>
         }
     </div>
     {
-      width && width < 600 && 
+      width && width < 700 && 
       <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
     }
-    </>
+    </div>
   )
 }
 
