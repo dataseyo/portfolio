@@ -69,7 +69,7 @@ const Menu = ({menuOpen, setMenuOpen} : Props) => {
             <motion.p className="menu-text">About</motion.p>
             <motion.p className="menu-text">Projects</motion.p>
             <motion.p className="menu-text">Contact</motion.p>
-            <motion.p className="menu-text">Settings</motion.p>
+            {/* <motion.p className="menu-text">Settings</motion.p> */}
         </motion.div>
 
     </motion.div>
