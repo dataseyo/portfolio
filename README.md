@@ -15,3 +15,13 @@ The shaders are also taking in scroll events to make color and displacement chan
 ## Foreground Model and Interaction
 
 The foreground model consumes a scroll event from the Drei useScroll helper, and updates its rotation based on the scroll offset. 
+
+## To-Do
+
+- map sections to scroll offsets
+- welcome message with scroll instruction
+- content popup when arriving at section
+- interaction with models
+- add models for the other sections
+- model animations when in view
+- settings
