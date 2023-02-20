@@ -1,5 +1,5 @@
 // REACT IMPORTS
-import React, { Suspense, useEffect } from 'react'
+import React, { Suspense } from 'react'
 
 // THREE IMPORTS
 import { Canvas, useThree } from '@react-three/fiber'
@@ -13,10 +13,11 @@ import {
   Projects,
   Particles,
   Hero,
-  Sphere
+  Scene
 } from './components'
 import {
-  ScrollHandler
+  ScrollHandler,
+  LoaderScreen
 } from './core'
 import {
   ScrollContextProvider
@@ -30,27 +31,14 @@ const Camera = () => {
   return <></>
 }
 
-
 // APP
 function App() {
-  // LOADING
-  const { active, progress, errors, item, loaded, total } = useProgress()
-  const LoaderScreen = () => {
-    console.log(progress)
-    return (
-      <div>
-        <h1 style={{color: "white"}}>Loading: {progress}</h1>
-      </div>
-    )
-  }
-
-
-  // APP
   return (
     <div className="App">
+      <LoaderScreen />
       <ScrollContextProvider>
       <Nav />
-      <Suspense fallback={<LoaderScreen/>}>
+      {/* <Suspense fallback={<LoaderScreen/>}> */}
         <Canvas
           camera={{
             fov: 45,
@@ -59,9 +47,8 @@ function App() {
             position: [0, -4, 3],
             // zoom: 2.5
           }}
-          // position: [0, -4, 3]
-
         >
+
           {/* <axesHelper /> */}
           {/* <OrbitControls
             position={[0, 0, 0]}
@@ -73,13 +60,13 @@ function App() {
             maxAzimuthAngle={Math.PI / 2}
           /> */}
           <ambientLight color="white"/>
-          <Environment preset="city"/>
+          <Environment preset="studio"/>
           <color attach="background" args={["black"]} />
           <Camera/>
           <ScrollControls pages={3} damping={0.1} style={{scrollbarWidth: "none", color: "black"}}>
             {/* MODELS */}
             <Particles />
-            <Sphere />
+            <Scene />
             {/* <Scroll style={{height: "100vh"}}>
 
             </Scroll> */}
@@ -95,8 +82,8 @@ function App() {
 
           
       </Canvas>
-    </Suspense>
-    <Loader/>
+    {/* </Suspense> */}
+    {/* <Loader/> */}
     </ScrollContextProvider>
 
     </div>

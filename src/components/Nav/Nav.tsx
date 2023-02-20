@@ -32,7 +32,7 @@ const Nav = () => {
           initial="closed"
         >
           {/* TITLE */}
-          <h1 className="nav-title">Portfolio</h1>
+          <h1 className="nav-title">Zachary Shifrel</h1>
         </motion.div>
         {
           width && width > 700 && 

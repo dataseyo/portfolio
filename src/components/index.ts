@@ -2,7 +2,7 @@ import Nav from './Nav/Nav'
 import About from './About/About'
 import Projects from './Projects/Projects'
 import Particles from './Particles/Particles'
-import Sphere from './Sphere/Sphere'
+import Scene from './Scene/Scene'
 import Hero from './Hero/Hero'
 
 export {
@@ -11,5 +11,5 @@ export {
     Projects,
     Particles,
     Hero,
-    Sphere
+    Scene
 }
