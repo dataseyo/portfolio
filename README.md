@@ -18,8 +18,6 @@ The foreground model consumes a scroll event from the Drei useScroll helper, and
 
 ## To-Do
 
-- map sections to scroll offsets
-- welcome message with scroll instruction
 - content popup when arriving at section
 - interaction with models
 - add models for the other sections

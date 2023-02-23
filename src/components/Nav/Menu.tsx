@@ -1,7 +1,11 @@
+// external imports
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useScroll } from "@react-three/drei"
+import { useFrame } from "@react-three/fiber"
 
+// internal imports
 import './styles.css'
 import { MenuButton } from './MenuButton'
 
@@ -34,46 +38,58 @@ type Props = {
 }
 
 const Menu = ({menuOpen, setMenuOpen} : Props) => {
-  return (
-    <motion.div 
-        className="menu__container"
-        animate={menuOpen ? "show" : "hidden"}
-        onClick={() => setMenuOpen(!menuOpen)}
-        variants={container}
-        initial="hidden"
-    >
+    const scroll = useScroll()
 
-        {/* MENU ICON */}
-        <motion.div className="menu-icon">
-           <MenuButton
-                isOpen={menuOpen}
-                // onClick={() => setMenuOpen(!menuOpen)}
-                color="white"
-                width="30"
-                height="20"
-            />
+    const scrollTo = () => {
+        console.log("scroll to")
+        console.log(scroll.offset)
+        if (scroll.offset) {
+            scroll.offset = 0.3
+        }
+    }
+
+    return (
+        <motion.div 
+            className="menu__container"
+            animate={menuOpen ? "show" : "hidden"}
+            // onClick={() => setMenuOpen(!menuOpen)}
+            variants={container}
+            initial="hidden"
+        >
+
+            {/* MENU ICON */}
+            <motion.div className="menu-icon">
+                <MenuButton
+                    isOpen={menuOpen}
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    color="white"
+                    width="30"
+                    height="20"
+                />
+            </motion.div>
+
+            {/* MENU DESCRIPTION */}
+            {/* {
+                menuOpen ? 
+                <motion.p className="menu-text">close</motion.p>
+                :
+                <motion.p className="menu-text">menu</motion.p>
+
+            } */}
+
+ 
+
+
+            {/* MENU CONTENT */}
+            <motion.div variants={contentVariant} className="menu-content">
+                <motion.p className="menu-text" onClick={() => scrollTo()}>About</motion.p>
+                <motion.p className="menu-text">Projects</motion.p>
+                <motion.p className="menu-text">Contact</motion.p>
+                {/* <motion.p className="menu-text">Settings</motion.p> */}
+            </motion.div>
+
         </motion.div>
-
-        {/* MENU DESCRIPTION */}
-        {/* {
-            menuOpen ? 
-            <motion.p className="menu-text">close</motion.p>
-            :
-            <motion.p className="menu-text">menu</motion.p>
-
-        } */}
-
-
-        {/* MENU CONTENT */}
-        <motion.div variants={contentVariant} className="menu-content">
-            <motion.p className="menu-text">About</motion.p>
-            <motion.p className="menu-text">Projects</motion.p>
-            <motion.p className="menu-text">Contact</motion.p>
-            {/* <motion.p className="menu-text">Settings</motion.p> */}
-        </motion.div>
-
-    </motion.div>
-  )
+    )
 }
 
 export default Menu

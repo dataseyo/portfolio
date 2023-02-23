@@ -77,7 +77,7 @@ const Particles = () => {
     }
 
     return (
-        <group>
+        <group position={[0, 0, 0]}>
             <points ref={particlesRef} >
                 <bufferGeometry>
                     <bufferAttribute

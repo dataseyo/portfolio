@@ -4,10 +4,23 @@ import { useScrollContext } from '../../context/ScrollContext'
 
 import './styles.css'
 
-const Hero = () => {
+type Modal = {
+    set: React.Dispatch<React.SetStateAction<{
+        aboutClosed: boolean;
+        projectsClosed: boolean;
+        skillsClosed: boolean;
+    }>>
+}
+
+const Skills = ({set}: Modal) => {
   const [closed, setClosed] = useState(false)
   const closeHero = () => {
-    setClosed(true)
+    // setClosed(true)
+    // console.log("closed")
+    set(prev => ({
+        ...prev,
+        skillsClosed: true
+    }))
   }
 
   const scroll = useScrollContext()
@@ -25,4 +38,4 @@ const Hero = () => {
   )
 }
 
-export default Hero
+export default Skills

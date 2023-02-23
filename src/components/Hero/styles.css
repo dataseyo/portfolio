@@ -1,10 +1,12 @@
 .hero__container {
+    position: fixed;
     display: flex;
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     align-items: center;
     justify-content: center;
     scroll-snap-stop: always;
+    z-index: 6000;
 }
 
 .hero-title {
@@ -33,4 +35,17 @@
     backdrop-filter: blur( .7px );
     -webkit-backdrop-filter: blur( .7px );
     /* box-shadow: 2px 8px 32px 2px rgba( 233, 236, 245, 0.22 ); */
+}
+
+.hero-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.hero-icon {
+    color: white;
+    font-size: 3em;
 }

@@ -4,6 +4,7 @@ import Projects from './Projects/Projects'
 import Particles from './Particles/Particles'
 import Scene from './Scene/Scene'
 import Hero from './Hero/Hero'
+import Skills from './Skills/Skills'
 
 export {
     Nav,
@@ -11,5 +12,6 @@ export {
     Projects,
     Particles,
     Hero,
-    Scene
+    Scene,
+    Skills
 }

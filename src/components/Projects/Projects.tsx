@@ -1,17 +1,41 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { IoMdClose } from 'react-icons/io'
+import { useScrollContext } from '../../context/ScrollContext'
 
 import './styles.css'
 
-const Projects = () => {
+type Modal = {
+    set: React.Dispatch<React.SetStateAction<{
+        aboutClosed: boolean;
+        projectsClosed: boolean;
+        skillsClosed: boolean;
+    }>>
+}
 
-    return (
-        <div className="projects__container">   
-            <div className="projects-background">
-                <h1 className="projects-title">Projects</h1>
-                <p className="projects-text">Content here...</p>
-            </div>
+const Projects = ({set}: Modal) => {
+  const [closed, setClosed] = useState(false)
+  const closeHero = () => {
+    // setClosed(true)
+    // console.log("closed")
+    set(prev => ({
+        ...prev,
+        projectsClosed: true
+    }))
+  }
+
+  const scroll = useScrollContext()
+
+  return (
+    <div className="hero__container" style={{zIndex: closed ? 0 : 6000}}>
+        <div className="hero-background">
+          <div className="hero-header">
+            <h1 className="hero-title">Projects</h1>
+            <IoMdClose className="hero-icon" onClick={() => closeHero()}/>
+          </div>
+            
         </div>
-    )
+    </div>
+  )
 }
 
 export default Projects

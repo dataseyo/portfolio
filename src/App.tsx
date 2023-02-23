@@ -1,9 +1,9 @@
 // REACT IMPORTS
-import React, { Suspense } from 'react'
+import React, { Suspense, useState } from 'react'
 
 // THREE IMPORTS
 import { Canvas, useThree } from '@react-three/fiber'
-import { Loader, useProgress, OrbitControls, ScrollControls, Scroll, Environment } from '@react-three/drei'
+import { OrbitControls, ScrollControls, Scroll, Environment } from '@react-three/drei'
 
 // PROJECT IMPORTS
 import './App.css'
@@ -22,7 +22,7 @@ import {
 import {
   ScrollContextProvider
 } from './context/ScrollContext'
-
+import Horizon from './assets/three/Horizon'
 
 // CAMERA
 const Camera = () => {
@@ -31,11 +31,21 @@ const Camera = () => {
   return <></>
 }
 
+
+
 // APP
 function App() {
+  const [location, setLocation] = useState("")
+
   return (
     <div className="App">
       <LoaderScreen />
+
+      {/* CONTENT 
+      */}
+      {/* <Hero/>   */}
+
+
       <ScrollContextProvider>
       <Nav />
       {/* <Suspense fallback={<LoaderScreen/>}> */}
@@ -43,50 +53,40 @@ function App() {
           camera={{
             fov: 45,
             near: 0.1,
-            far: 200,
+            far: 100,
             position: [0, -4, 3],
             // zoom: 2.5
           }}
         >
-
           {/* <axesHelper /> */}
-          {/* <OrbitControls
-            position={[0, 0, 0]}
-            maxDistance={4}
-            minDistance={1}
-            enableZoom={false}
-            enableRotate={false}
-            minAzimuthAngle={0}
-            maxAzimuthAngle={Math.PI / 2}
-          /> */}
           <ambientLight color="white"/>
-          <Environment preset="studio"/>
+          {/* <Environment preset="studio"/> */}
           <color attach="background" args={["black"]} />
           <Camera/>
-          <ScrollControls pages={3} damping={0.1} style={{scrollbarWidth: "none", color: "black"}}>
+          <ScrollControls pages={1} damping={0.5} style={{scrollbarWidth: "none", color: "black"}}>
             {/* MODELS */}
-            <Particles />
+            {/* <Particles /> */}
             <Scene />
-            {/* <Scroll style={{height: "100vh"}}>
-
-            </Scroll> */}
 
             {/* REACT | HTML */}
-            {/* <Scroll html style={{width: '100%', scrollSnapStop: "always"}}>
-                <Hero/>  
-                <About/>
-                <Projects/>
-            </Scroll> */}
-            <ScrollHandler/>
+            <Scroll html style={{width: '100%', height: '100%', scrollSnapStop: "always"}}>
+              <ScrollHandler/>
+            </Scroll>
+            {/* <ScrollHandler/> */}
           </ScrollControls>
 
-          
-      </Canvas>
-    {/* </Suspense> */}
-    {/* <Loader/> */}
-    </ScrollContextProvider>
+          {/* FLOATING ISLAND */}
 
-    </div>
+
+          {/* HORIZON */}
+          <Horizon/>
+          <fog attach="fog" args={['#262837', 2, 11.5]} />
+          <color attach="background" args={["#262837"]} />
+      </Canvas>
+      {/* </Suspense> */}
+      {/* <Loader/> */}
+    </ScrollContextProvider>
+  </div>
 
   )
 }
