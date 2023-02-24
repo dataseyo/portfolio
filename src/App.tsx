@@ -22,7 +22,7 @@ import {
   ScrollContextProvider
 } from './context/ScrollContext'
 import Horizon from './assets/three/Horizon'
-import Sun from './assets/shaders/sun'
+import Sun from './assets/shaders/Sun'
 
 // CAMERA
 const Camera = () => {
@@ -38,8 +38,7 @@ function App() {
     projectsModal: false,
     skillsModal: false
   })
-
-
+  
   return (
     <div className="App">
       <LoaderScreen />
