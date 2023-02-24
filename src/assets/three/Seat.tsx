@@ -5,17 +5,21 @@ Command: npx gltfjsx@6.1.4 Seat.glb --transform
 
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import * as THREE from 'three'
 
 type Vec = {
   position: number[],
-  rotation: numebr[]
+  rotation: number[]
 }
 
-export function Seat({position, rotation}: Vec, props) {
+export function Seat({position, rotation}: Vec, props: any) {
   const { nodes, materials } = useGLTF('/Seat-transformed.glb')
+  const {
+    Bench_2
+  }: any = nodes
   return (
     <group {...props} dispose={null} position={position} rotation={rotation} scale={0.1}>
-      <mesh geometry={nodes.Bench_2.geometry} material={materials.Wood} rotation={[-Math.PI / 2, 0, 0]} scale={100} />
+      <mesh geometry={Bench_2.geometry} material={materials.Wood} rotation={[-Math.PI / 2, 0, 0]} scale={100} />
     </group>
   )
 }

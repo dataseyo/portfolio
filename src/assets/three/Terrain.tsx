@@ -12,10 +12,10 @@ import useScreenSize from '../../hooks/useScreenSize'
 
 export function Terrain() {
   const scroll = useScroll()
-  const centerRef = useRef<THREE.Group | undefined>()
+  const centerRef = useRef<any>()
 
   // LIGHT
-  const lightRef = useRef<React.MutableRefObject<undefined> | undefined | any>()
+  const lightRef = useRef<any>()
   // useHelper(lightRef, THREE.SpotLightHelper, 'cyan')
 
   // update scroll
@@ -42,6 +42,33 @@ export function Terrain() {
   })
 
   const { nodes, materials } = useGLTF('/terrain-transformed.glb')
+  const {
+    Circle,
+    Cube_1,
+    Cube_2,
+    Icosphere,
+    Icosphere001,
+    Icosphere002,
+    Icosphere003,
+    Icosphere004,
+    Icosphere009_1,
+    Icosphere009_2,
+    Icosphere009_3,
+    Icosphere009_4,
+    Icosphere009_5,
+    Icosphere009_6,
+    Icosphere005,
+    Icosphere008,
+    Icosphere016,
+    Icosphere016_1,
+    Icosphere016_2,
+    Icosphere016_3,
+    Icosphere016_4,
+    Icosphere016_5,
+    Icosphere006,
+    Cube001_1,
+    Cube001_2
+  }: any = nodes
   return (
     <>
     <group dispose={null} position={[0, -3.8, 2.5]} rotation={[(Math.PI / 180) * 50, 0, 0]} ref={centerRef}>
@@ -65,58 +92,58 @@ export function Terrain() {
       <Seat position={[.35, 0, -.225]} rotation={[0, -.72, 0]}/>
 
       {/* TERRAIN */}
-      <mesh geometry={nodes.Circle.geometry} material={materials['base.001']} receiveShadow/>
+      <mesh geometry={Circle.geometry} material={materials['base.001']} receiveShadow/>
       <group position={[0.32, 0.04, -0.81]} rotation={[-0.01, -0.14, -0.06]} scale={-0.01}>
-        <mesh geometry={nodes.Cube_1.geometry} material={materials['Material.001']} />
-        <mesh geometry={nodes.Cube_2.geometry} material={materials['Material.002']} />
+        <mesh geometry={Cube_1.geometry} material={materials['Material.001']} />
+        <mesh geometry={Cube_2.geometry} material={materials['Material.002']} />
       </group>
       <group position={[-0.68, 0.12, -0.35]} rotation={[3.06, -1.14, 3.02]} scale={-0.01}>
-        <mesh geometry={nodes.Cube_1.geometry} material={materials['Material.001']} />
-        <mesh geometry={nodes.Cube_2.geometry} material={materials['Material.002']} />
+        <mesh geometry={Cube_1.geometry} material={materials['Material.001']} />
+        <mesh geometry={Cube_2.geometry} material={materials['Material.002']} />
       </group>
       <group position={[0.49, 0.08, 0.39]} rotation={[3.02, -0.43, 3.1]} scale={-0.01}>
-        <mesh geometry={nodes.Cube_1.geometry} material={materials['Material.001']} />
-        <mesh geometry={nodes.Cube_2.geometry} material={materials['Material.002']} />
+        <mesh geometry={Cube_1.geometry} material={materials['Material.001']} />
+        <mesh geometry={Cube_2.geometry} material={materials['Material.002']} />
       </group>
       <group position={[-0.25, 0.06, 0.59]} rotation={[2.96, -0.73, 2.98]} scale={-0.01}>
-        <mesh geometry={nodes.Cube_1.geometry} material={materials['Material.001']} />
-        <mesh geometry={nodes.Cube_2.geometry} material={materials['Material.002']} />
+        <mesh geometry={Cube_1.geometry} material={materials['Material.001']} />
+        <mesh geometry={Cube_2.geometry} material={materials['Material.002']} />
       </group>
       <group position={[0.23, 0.04, -0.72]} rotation={[-2.95, -0.76, -3.07]} scale={-0.01}>
-        <mesh geometry={nodes.Cube001_1.geometry} material={materials['Material.001']} />
-        <mesh geometry={nodes.Cube001_2.geometry} material={materials['Material.002']} />
+        <mesh geometry={Cube001_1.geometry} material={materials['Material.001']} />
+        <mesh geometry={Cube001_2.geometry} material={materials['Material.002']} />
       </group>
       <group position={[0.16, 0.07, -0.77]} rotation={[0.01, 0.16, 0]} scale={-0.01}>
-        <mesh geometry={nodes.Cube001_1.geometry} material={materials['Material.001']} />
-        <mesh geometry={nodes.Cube001_2.geometry} material={materials['Material.002']} />
+        <mesh geometry={Cube001_1.geometry} material={materials['Material.001']} />
+        <mesh geometry={Cube001_2.geometry} material={materials['Material.002']} />
       </group>
       <group position={[-0.81, 0.01, -0.25]} rotation={[3.11, -0.41, 3.07]} scale={-0.01}>
-        <mesh geometry={nodes.Cube001_1.geometry} material={materials['Material.001']} />
-        <mesh geometry={nodes.Cube001_2.geometry} material={materials['Material.002']} />
+        <mesh geometry={Cube001_1.geometry} material={materials['Material.001']} />
+        <mesh geometry={Cube001_2.geometry} material={materials['Material.002']} />
       </group>
-      <mesh geometry={nodes.Icosphere.geometry} material={nodes.Icosphere.material} position={[-0.17, 0.01, -0.48]} rotation={[0.46, 0.07, 0.23]} scale={0.02} />
-      <mesh geometry={nodes.Icosphere001.geometry} material={nodes.Icosphere001.material} position={[-0.14, 0, -0.52]} rotation={[-2.98, 1.4, 2.4]} scale={[0.02, 0.03, 0.04]} />
-      <mesh geometry={nodes.Icosphere002.geometry} material={nodes.Icosphere002.material} position={[-0.22, 0.03, -0.51]} rotation={[1.94, 1.4, 2.4]} scale={[0.02, 0.03, 0.04]} />
-      <mesh geometry={nodes.Icosphere003.geometry} material={nodes.Icosphere003.material} position={[0.57, 0.07, 0.36]} rotation={[-0.4, 0.14, -0.17]} scale={0.02} />
-      <mesh geometry={nodes.Icosphere004.geometry} material={nodes.Icosphere004.material} position={[0.58, 0.06, 0.32]} rotation={[0.12, -0.16, -0.26]} scale={0.01} />
+      <mesh geometry={Icosphere.geometry} material={Icosphere.material} position={[-0.17, 0.01, -0.48]} rotation={[0.46, 0.07, 0.23]} scale={0.02} />
+      <mesh geometry={Icosphere001.geometry} material={Icosphere001.material} position={[-0.14, 0, -0.52]} rotation={[-2.98, 1.4, 2.4]} scale={[0.02, 0.03, 0.04]} />
+      <mesh geometry={Icosphere002.geometry} material={Icosphere002.material} position={[-0.22, 0.03, -0.51]} rotation={[1.94, 1.4, 2.4]} scale={[0.02, 0.03, 0.04]} />
+      <mesh geometry={Icosphere003.geometry} material={Icosphere003.material} position={[0.57, 0.07, 0.36]} rotation={[-0.4, 0.14, -0.17]} scale={0.02} />
+      <mesh geometry={Icosphere004.geometry} material={Icosphere004.material} position={[0.58, 0.06, 0.32]} rotation={[0.12, -0.16, -0.26]} scale={0.01} />
       <group position={[-0.21, 0.15, 0.62]} scale={0.02}>
-        <mesh geometry={nodes.Icosphere009_1.geometry} material={materials['Material.003']} />
-        <mesh geometry={nodes.Icosphere009_2.geometry} material={materials['Material.002']} />
-        <mesh geometry={nodes.Icosphere009_3.geometry} material={materials['Material.004']} />
-        <mesh geometry={nodes.Icosphere009_4.geometry} material={materials['Material.002']} />
-        <mesh geometry={nodes.Icosphere009_5.geometry} material={materials['Material.002']} />
-        <mesh geometry={nodes.Icosphere009_6.geometry} material={materials['Material.002']} />
+        <mesh geometry={Icosphere009_1.geometry} material={materials['Material.003']} />
+        <mesh geometry={Icosphere009_2.geometry} material={materials['Material.002']} />
+        <mesh geometry={Icosphere009_3.geometry} material={materials['Material.004']} />
+        <mesh geometry={Icosphere009_4.geometry} material={materials['Material.002']} />
+        <mesh geometry={Icosphere009_5.geometry} material={materials['Material.002']} />
+        <mesh geometry={Icosphere009_6.geometry} material={materials['Material.002']} />
       </group>
-      <mesh geometry={nodes.Icosphere005.geometry} material={nodes.Icosphere005.material} position={[-0.79, 0.07, -0.03]} rotation={[1.47, 1.3, 0.52]} scale={[0.04, 0.05, 0.06]} />
-      <mesh geometry={nodes.Icosphere006.geometry} material={nodes.Icosphere006.material} position={[-0.79, 0, 0.09]} scale={0.02} />
-      <mesh geometry={nodes.Icosphere008.geometry} material={nodes.Icosphere008.material} position={[-0.86, 0, 0.24]} scale={0.03} />
+      <mesh geometry={Icosphere005.geometry} material={Icosphere005.material} position={[-0.79, 0.07, -0.03]} rotation={[1.47, 1.3, 0.52]} scale={[0.04, 0.05, 0.06]} />
+      <mesh geometry={Icosphere006.geometry} material={Icosphere006.material} position={[-0.79, 0, 0.09]} scale={0.02} />
+      <mesh geometry={Icosphere008.geometry} material={Icosphere008.material} position={[-0.86, 0, 0.24]} scale={0.03} />
       <group position={[-0.87, 0.09, 0.19]} rotation={[0, -1.19, 0]} scale={0.03}>
-        <mesh geometry={nodes.Icosphere016.geometry} material={materials['Material.003']} />
-        <mesh geometry={nodes.Icosphere016_1.geometry} material={materials['Material.002']} />
-        <mesh geometry={nodes.Icosphere016_2.geometry} material={materials['Material.004']} />
-        <mesh geometry={nodes.Icosphere016_3.geometry} material={materials['Material.002']} />
-        <mesh geometry={nodes.Icosphere016_4.geometry} material={materials['Material.002']} />
-        <mesh geometry={nodes.Icosphere016_5.geometry} material={materials['Material.002']} />
+        <mesh geometry={Icosphere016.geometry} material={materials['Material.003']} />
+        <mesh geometry={Icosphere016_1.geometry} material={materials['Material.002']} />
+        <mesh geometry={Icosphere016_2.geometry} material={materials['Material.004']} />
+        <mesh geometry={Icosphere016_3.geometry} material={materials['Material.002']} />
+        <mesh geometry={Icosphere016_4.geometry} material={materials['Material.002']} />
+        <mesh geometry={Icosphere016_5.geometry} material={materials['Material.002']} />
       </group>
     </group>
     </>
