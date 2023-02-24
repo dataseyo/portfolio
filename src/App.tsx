@@ -25,6 +25,7 @@ import {
 } from './context/ScrollContext'
 import Horizon from './assets/three/Horizon'
 import Sun from './assets/shaders/Sun'
+import { Content } from './core'
 
 // CAMERA
 const Camera = () => {
@@ -41,15 +42,14 @@ function App() {
     skillsModal: false
   })
 
-  const styles = {
-    width: "100%",
-    height: "100%"
-  }
-  
+  const [section, setSection] = useState(0)
+
   return (
     <div className="App">
+      <Content/>
       <LoaderScreen />
       <ScrollContextProvider>
+      {/* <ScrollHandler/> */}
       <Nav />
       {/* <Suspense fallback={<LoaderScreen/>}> */}
         <Canvas
@@ -65,9 +65,9 @@ function App() {
           {/* <OrbitControls /> */}
           <ambientLight color="white"/>
           {/* <Environment preset="studio"/> */}
-          <color attach="background" args={["black"]} />
+          <color attach="background" args={["black"]} id="controls"/>
           <Camera/>
-          <ScrollControls pages={1} damping={0.5}>
+          <ScrollControls pages={4}>
             {/* MODELS */}
             {/* <Particles /> */}
             <Sun/>
@@ -75,12 +75,22 @@ function App() {
             <Scene />
 
             {/* REACT | HTML */}
-            <Scroll html {...styles} style={{ width: '100%', height: "100%" }}>
+            
+            <Scroll 
+              html
+              style={{ 
+                position: "fixed",
+                top: 0,
+                width: '100%', 
+                height: "100%",
+                overscrollBehavior: "contain",
+                overflow: "auto"
+              }}
+            >
               <ScrollHandler/>
             </Scroll>
-            {/* <ScrollHandler/> */}
+            
           </ScrollControls>
-
           {/* HORIZON */}
           <Horizon/>
           <fog attach="fog" args={['#262837', 2, 9.7]} />

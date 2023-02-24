@@ -52,7 +52,7 @@ const Nav = () => {
               <FaLinkedin style={{fontSize: "1.5rem", marginRight: "4px"}}/>
             </Link>
             <Link to="https://www.instagram.com/doublechalkedup/" className="menu-link">
-              <FaInstagram style={{fontSize: "1.5rem", marginRight: "2px"}}/>
+              <FaInstagram style={{fontSize: "1.5rem", marginRight: "20px"}}/>
             </Link>
             {/* <h3 className="nav-menu-item">Settings</h3> */}
           </div>

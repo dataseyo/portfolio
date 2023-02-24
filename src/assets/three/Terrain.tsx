@@ -24,8 +24,8 @@ export function Terrain() {
     const { camera } = state
     if (centerRef.current) {
       centerRef.current.rotation.y = lerp(0, 6.28, scroll.offset)
+      // centerRef.current.rotation.y = lerp(0, scroll.offset, 6)
       // console.log(centerRef.current.rotation.y)
-      camera.rotateY
     }
 
     // spotlight target
