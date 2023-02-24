@@ -5,3 +5,8 @@
 
 /* font-family: 'Merriweather', serif;
 font-family: 'Raleway', sans-serif; */
+
+.scroll-test-container {
+  height: 100%;
+  width: 100%;
+}

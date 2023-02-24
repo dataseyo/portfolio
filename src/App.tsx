@@ -1,9 +1,11 @@
+// @ts-nocheck
 // REACT IMPORTS
 import React, { Suspense, useState } from 'react'
 
 // THREE IMPORTS
 import { Canvas, useThree } from '@react-three/fiber'
 import { OrbitControls, ScrollControls, Scroll } from '@react-three/drei'
+import { ScrollHtml } from '@react-three/drei/web/ScrollControls'
 
 // PROJECT IMPORTS
 import './App.css'
@@ -38,6 +40,11 @@ function App() {
     projectsModal: false,
     skillsModal: false
   })
+
+  const styles = {
+    width: "100%",
+    height: "100%"
+  }
   
   return (
     <div className="App">
@@ -68,7 +75,7 @@ function App() {
             <Scene />
 
             {/* REACT | HTML */}
-            <Scroll html style={{width: '100%', height: '100%', scrollSnapStop: "always"}}>
+            <Scroll html {...styles} style={{ width: '100%' }}>
               <ScrollHandler/>
             </Scroll>
             {/* <ScrollHandler/> */}
