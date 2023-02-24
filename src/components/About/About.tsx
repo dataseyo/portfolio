@@ -32,13 +32,13 @@ const About = ({set}: Modal) => {
         className="hero__container" 
         style={{zIndex: closed ? 0 : 6000}}
     >
-        <div className="hero-background">
+        {/* <div className="hero-background"> */}
           <div className="hero-header">
             <h1 className="hero-title">About</h1>
             <IoMdClose className="hero-icon" onClick={() => closeHero()}/>
           </div>
             
-        </div>
+        {/* </div> */}
     </div>
   )
 }

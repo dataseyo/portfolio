@@ -36,6 +36,8 @@
     display: flex;
     flex-direction: row;
     margin: 8px;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-menu-item {
@@ -78,6 +80,7 @@
     margin: 0px;
     margin-bottom: 10px;
     font-size: 1.55rem;
+    cursor: pointer;
 }
 
 .menu-content {
@@ -85,8 +88,20 @@
     display: flex;
     flex-direction: column;
     margin-right: 25px;
-    background-color: rgba(0,0,0,0.58);
+    /* background-color: rgba(0,0,0,0.58); */
     border-radius: 5px;
     backdrop-filter: blur( .8px );
     -webkit-backdrop-filter: blur( .8px );
+}
+
+.menu-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.menu-link:visited {
+    color: white;
 }

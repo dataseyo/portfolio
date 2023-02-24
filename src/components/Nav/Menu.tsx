@@ -2,8 +2,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { useScroll } from "@react-three/drei"
-import { useFrame } from "@react-three/fiber"
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
 
 // internal imports
 import './styles.css'
@@ -38,16 +37,6 @@ type Props = {
 }
 
 const Menu = ({menuOpen, setMenuOpen} : Props) => {
-    const scroll = useScroll()
-
-    const scrollTo = () => {
-        console.log("scroll to")
-        console.log(scroll.offset)
-        if (scroll.offset) {
-            scroll.offset = 0.3
-        }
-    }
-
     return (
         <motion.div 
             className="menu__container"
@@ -68,23 +57,23 @@ const Menu = ({menuOpen, setMenuOpen} : Props) => {
                 />
             </motion.div>
 
-            {/* MENU DESCRIPTION */}
-            {/* {
-                menuOpen ? 
-                <motion.p className="menu-text">close</motion.p>
-                :
-                <motion.p className="menu-text">menu</motion.p>
-
-            } */}
-
- 
-
-
             {/* MENU CONTENT */}
             <motion.div variants={contentVariant} className="menu-content">
-                <motion.p className="menu-text" onClick={() => scrollTo()}>About</motion.p>
+                <motion.p className="menu-text">About</motion.p>
                 <motion.p className="menu-text">Projects</motion.p>
-                <motion.p className="menu-text">Contact</motion.p>
+                <motion.p className="menu-text">Skills</motion.p>
+                <motion.div 
+                    className="menu-text"
+                    style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "space-evenly"
+                    }}
+                >
+                    <Link to="https://github.com/dataseyo" className="menu-link"><FaGithub/></Link>
+                    <Link to="https://www.linkedin.com/in/zachary-shifrel/" className="menu-link"><FaLinkedin/></Link>
+                    <Link to="https://www.instagram.com/doublechalkedup/" className="menu-link"><FaInstagram/></Link>
+                </motion.div>
                 {/* <motion.p className="menu-text">Settings</motion.p> */}
             </motion.div>
 

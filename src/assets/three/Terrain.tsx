@@ -3,10 +3,12 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useGLTF, useScroll, useHelper } from '@react-three/drei'
 import { useFrame } from "@react-three/fiber"
 import { lerp } from "three/src/math/MathUtils"
-import * as THREE from 'three'
+// import * as THREE from 'three'
 
 // internal imports
 import { Climb } from './Climb'
+import { Seat } from './Seat'
+import useScreenSize from '../../hooks/useScreenSize'
 
 export function Terrain() {
   const scroll = useScroll()
@@ -17,28 +19,27 @@ export function Terrain() {
   // useHelper(lightRef, THREE.SpotLightHelper, 'cyan')
 
   // update scroll
+  const {width, height} = useScreenSize()
   useFrame((state) => {
     const { camera } = state
     if (centerRef.current) {
       centerRef.current.rotation.y = lerp(0, 6.28, scroll.offset)
       // console.log(centerRef.current.rotation.y)
+      camera.rotateY
     }
 
     // spotlight target
     if (lightRef.current) {
       lightRef.current.target.position.y = -3
       lightRef.current.target.updateMatrixWorld()
-    }
-  })
 
-  const test = () => {
-    console.log("test")
-    if (centerRef.current) {
-      console.log("test 2")
-      centerRef.current.rotation.y += 0.5
-      // centerRef.current.rotation.y = lerp(5, 6.28, scroll.offset + 0.5)
+      if (width && width < 450) {
+        lightRef.current.angle = 0.4
+      } 
     }
-  }
+  
+    
+  })
 
   const { nodes, materials } = useGLTF('/terrain-transformed.glb')
   return (
@@ -51,15 +52,20 @@ export function Terrain() {
         ref={lightRef} 
         castShadow
         angle={0.5}
-        // penumbra={1}
+        penumbra={0.4}
         distance={4}
       />
 
       {/* WALL */}
       <Climb/>
 
+      {/* Benches */}
+      <Seat position={[.3, 0, -.3]} rotation={[0, -1.35, 0]}/>
+      <Seat position={[.45, 0, -.2]} rotation={[0, 0, 0]}/>
+      <Seat position={[.35, 0, -.225]} rotation={[0, -.72, 0]}/>
+
       {/* TERRAIN */}
-      <mesh geometry={nodes.Circle.geometry} material={materials['base.001']} receiveShadow onClick={() => test()}/>
+      <mesh geometry={nodes.Circle.geometry} material={materials['base.001']} receiveShadow/>
       <group position={[0.32, 0.04, -0.81]} rotation={[-0.01, -0.14, -0.06]} scale={-0.01}>
         <mesh geometry={nodes.Cube_1.geometry} material={materials['Material.001']} />
         <mesh geometry={nodes.Cube_2.geometry} material={materials['Material.002']} />

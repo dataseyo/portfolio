@@ -3,7 +3,7 @@ import React, { Suspense, useState } from 'react'
 
 // THREE IMPORTS
 import { Canvas, useThree } from '@react-three/fiber'
-import { OrbitControls, ScrollControls, Scroll, Environment } from '@react-three/drei'
+import { OrbitControls, ScrollControls, Scroll } from '@react-three/drei'
 
 // PROJECT IMPORTS
 import './App.css'
@@ -11,7 +11,6 @@ import {
   Nav,
   About,
   Projects,
-  Particles,
   Hero,
   Scene
 } from './components'
@@ -23,6 +22,7 @@ import {
   ScrollContextProvider
 } from './context/ScrollContext'
 import Horizon from './assets/three/Horizon'
+import Sun from './assets/shaders/sun'
 
 // CAMERA
 const Camera = () => {
@@ -31,21 +31,18 @@ const Camera = () => {
   return <></>
 }
 
-
-
 // APP
 function App() {
-  const [location, setLocation] = useState("")
+  const [modalsOpen, setModalsOpen] = useState({
+    aboutModal: false,
+    projectsModal: false,
+    skillsModal: false
+  })
+
 
   return (
     <div className="App">
       <LoaderScreen />
-
-      {/* CONTENT 
-      */}
-      {/* <Hero/>   */}
-
-
       <ScrollContextProvider>
       <Nav />
       {/* <Suspense fallback={<LoaderScreen/>}> */}
@@ -59,13 +56,16 @@ function App() {
           }}
         >
           {/* <axesHelper /> */}
+          {/* <OrbitControls /> */}
           <ambientLight color="white"/>
           {/* <Environment preset="studio"/> */}
           <color attach="background" args={["black"]} />
           <Camera/>
-          <ScrollControls pages={1} damping={0.5} style={{scrollbarWidth: "none", color: "black"}}>
+          <ScrollControls pages={1} damping={0.5}>
             {/* MODELS */}
             {/* <Particles /> */}
+            <Sun/>
+
             <Scene />
 
             {/* REACT | HTML */}
@@ -75,16 +75,11 @@ function App() {
             {/* <ScrollHandler/> */}
           </ScrollControls>
 
-          {/* FLOATING ISLAND */}
-
-
           {/* HORIZON */}
           <Horizon/>
-          <fog attach="fog" args={['#262837', 2, 11.5]} />
+          <fog attach="fog" args={['#262837', 2, 9.7]} />
           <color attach="background" args={["#262837"]} />
       </Canvas>
-      {/* </Suspense> */}
-      {/* <Loader/> */}
     </ScrollContextProvider>
   </div>
 

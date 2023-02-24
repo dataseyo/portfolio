@@ -1,0 +1,15 @@
+.scroll-text {
+    color: "white";
+    overflow-wrap: "break-word";
+    max-width: "clamp(300px, 350px, 450px)";
+    font-size: "clamp(1rem, 2rem, 3rem)";
+}
+
+.title-guuy {
+    color: "white";
+}
+
+.test {
+    color: "pink";
+    background-color: "pink";
+}
