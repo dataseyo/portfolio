@@ -1,5 +1,7 @@
 # Portfolio
 
+*In progress.* Deployed at [portfolio link](https://main.d2gdwsemshwdm6.amplifyapp.com/).
+
 ## Stack
 
 - React with Typescript, using Vite. 
