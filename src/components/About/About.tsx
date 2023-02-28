@@ -1,45 +1,59 @@
+// external imports
 import React, { useEffect, useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
 import { motion } from 'framer-motion'
 
-import { useScrollContext } from '../../context/ScrollContext'
-
+// internal imports
 import './styles.css'
 
 type Modal = {
-    set: React.Dispatch<React.SetStateAction<{
-        aboutClosed: boolean;
-        projectsClosed: boolean;
-        skillsClosed: boolean;
-    }>>
+  modalOpen: {
+    aboutModal: boolean,
+    projectsModal: boolean,
+    skillsModal: boolean
+  },
+  setModalOpen: React.Dispatch<React.SetStateAction<{
+    aboutModal: boolean;
+    projectsModal: boolean;
+    skillsModal: boolean;
+}>>
 }
 
-const About = ({set}: Modal) => {
-  const [closed, setClosed] = useState(false)
-  const closeHero = () => {
-    // setClosed(true)
-    // console.log("closed")
-    set(prev => ({
+const contentVariant = {
+  hidden: {
+      opacity: 0,
+      width: 0
+      // x: "100vw",
+  },
+  show: {
+      opacity: 1,
+      // x: 0,
+      width: "100vw",
+      zIndex: 1000
+  },
+
+}
+
+const About = ({modalOpen, setModalOpen}: Modal) => {
+  const closeAbout = () => {
+    setModalOpen(prev => ({
         ...prev,
-        aboutClosed: true
+        aboutModal: false
     }))
   }
 
-  const scroll = useScrollContext()
-
   return (
-    <div 
-        className="hero__container" 
-        style={{zIndex: closed ? 0 : 6000}}
+    <motion.div 
+      className="about__container"
+      animate={modalOpen.aboutModal ? "show" : "hidden"}
+      // onClick={() => setMenuOpen(!menuOpen)}
+      variants={contentVariant}
+      initial="hidden"
+      // exit="hidden"
     >
-        {/* <div className="hero-background"> */}
-          <div className="hero-header">
-            <h1 className="hero-title">About</h1>
-            <IoMdClose className="hero-icon" onClick={() => closeHero()}/>
-          </div>
-            
-        {/* </div> */}
-    </div>
+      <h1>About</h1>
+      
+    </motion.div>
   )
 }
 

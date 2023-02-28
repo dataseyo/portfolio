@@ -20,12 +20,20 @@
 
 .nav-title {
     margin: 8px;
-    user-select: none;
     width: 100%;
     height: 100%;
+    
 }
 
 .nav-title h1 {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    margin: 8px;
+    width: 100%;
+    height: 100%;
     color: white;
     font-family: 'Merriweather', serif;
     font-size: clamp(1rem, 2rem, 2.5rem);

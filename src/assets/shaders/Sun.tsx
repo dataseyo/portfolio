@@ -22,12 +22,10 @@ const Sun = () => {
 
         // We add the 3 values to the attribute array for every loop
         positions.set([x, y, z], i * 3);
-        }
-
+    }
 
     return positions;
     }, [count]);
-
 
     const uniforms = {
         u_time: {
@@ -56,7 +54,6 @@ const Sun = () => {
         if (scroll.offset) {
             // console.log(scroll.offset)
             uniforms.u_scroll.value = scroll.offset
-
         }
     })
 

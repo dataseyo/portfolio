@@ -1,29 +1,18 @@
 // external imports
-import { useEffect, useState } from 'react'
-import { useScroll } from '@react-three/drei'
-import { useFrame } from '@react-three/fiber'
 import { motion, AnimatePresence } from 'framer-motion'
 import { BsHandIndex } from 'react-icons/bs' 
 
+// internal imports
 import useSectionStore from '../ScrollHandler/useScrollState'
 
 const Content = () => {
     const { section } = useSectionStore()
-    const [sectionSettings, setSectionSettings] = useState({
-        aboutClosed: false,
-        projectsClosed: false,
-        skillsClosed: false,
 
-    })
-
-    
     return (
         <div
             className="no-select"
             style={{
                 position: "absolute",
-                // left: "50%",
-                // top: "50%",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -104,7 +93,7 @@ const Content = () => {
         }
 
         {/* Section 1: About */}
-        {section == 1 && !sectionSettings.aboutClosed && 
+        {section == 1 && 
             <AnimatePresence
             >
                 <motion.div
@@ -146,7 +135,7 @@ const Content = () => {
         }
 
         {/* Section 2: Projects */}
-        {section == 2 && !sectionSettings.projectsClosed &&
+        {section == 2 &&
             <AnimatePresence
             >
             <motion.div
@@ -181,7 +170,7 @@ const Content = () => {
         }
 
         {/* Section 3: Skills */}
-        {section == 3 && !sectionSettings.skillsClosed &&
+        {section == 3 &&
             <AnimatePresence
             >
                 <motion.div

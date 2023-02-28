@@ -9,6 +9,11 @@ import './styles.css'
 import Menu from './Menu'
 import { useScrollContext } from '../../context/ScrollContext'
 import useScreenSize from '../../hooks/useScreenSize'
+import { 
+  About, 
+  Projects, 
+  Skills 
+} from '../index'
 
 const Nav = () => {
   // SCROLL
@@ -18,6 +23,12 @@ const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false)
   const {width, height} = useScreenSize()
 
+  const [modalOpen, setModalOpen] = useState({
+    aboutModal: false,
+    projectsModal: false,
+    skillsModal: false
+  })
+
   // ANIMATION
   const variants = {
     open: { opacity: 1},
@@ -25,6 +36,54 @@ const Nav = () => {
   }
 
   // MODALS
+  const controlModal = (type: string) => {
+    switch(type) {
+      case "about": 
+        if (modalOpen.aboutModal) {
+          return setModalOpen(prev => ({
+            ...prev,
+            aboutModal: false
+          }))
+        } else {
+          return setModalOpen(prev => ({
+            ...prev,
+            aboutModal: true,
+            projectsModal: false,
+            skillsModal: false
+          }))
+        }
+
+      case "projects": 
+        if (modalOpen.projectsModal) {
+          return setModalOpen(prev => ({
+            ...prev,
+            projectsModal: false,
+          }))
+        } else {
+          return setModalOpen(prev => ({
+            ...prev,
+            aboutModal: false,
+            projectsModal: true,
+            skillsModal: false
+          }))
+        }
+
+      case "skills": 
+        if (modalOpen.skillsModal) {
+          return setModalOpen(prev => ({
+            ...prev,
+            skillsModal: false
+          }))
+        } else {
+          return setModalOpen(prev => ({
+            ...prev,
+            aboutModal: false,
+            projectsModal: false,
+            skillsModal: true
+          }))
+        }
+    }
+  }
 
   return (
     <div className="nav">
@@ -32,19 +91,38 @@ const Nav = () => {
         <motion.div 
           className="nav-title"
           animate={menuOpen ? "open" : "closed"}
-          onClick={() => setMenuOpen(!menuOpen)}
+          // onClick={() => setMenuOpen(!menuOpen)}
           initial="closed"
         >
           {/* TITLE */}
-          <h1 className="nav-title">Zachary Shifrel</h1>
+          <h1
+            onClick={() => setModalOpen(prev => ({...prev, aboutModal: false, projectsModal: false, skillsModal: false }))}    
+          >
+            Zachary Shifrel
+          </h1>
         </motion.div>
         {
           width && width > 700 && 
           <div className="nav-menu">
             {/* <FaBars className="nav-menu-icon"/> */}
-            <h3 className="nav-menu-item">About</h3>
-            <h3 className="nav-menu-item">Projects</h3>
-            <h3 className="nav-menu-item">Skills</h3>
+            <h3 
+              className="nav-menu-item" 
+              onClick={() => controlModal("about")}    
+            >
+                About
+            </h3>
+            <h3 
+              className="nav-menu-item"
+              onClick={() => controlModal("projects")}    
+            >
+              Projects
+            </h3>
+            <h3 
+              className="nav-menu-item"
+              onClick={() => controlModal("skills")}    
+            >
+              Skills
+            </h3>
             <Link to="https://github.com/dataseyo" className="menu-link">
               <FaGithub style={{fontSize: "1.5rem", marginRight: "4px"}}/>
             </Link>
@@ -60,8 +138,15 @@ const Nav = () => {
     </div>
     {
       width && width < 700 && 
-      <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+      <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} modalOpen={modalOpen} setModalOpen={setModalOpen}/>
     }
+
+
+    {/* Content */}
+    <About modalOpen={modalOpen} setModalOpen={setModalOpen}/>
+    <Projects modalOpen={modalOpen} setModalOpen={setModalOpen}/>
+    <Skills modalOpen={modalOpen} setModalOpen={setModalOpen}/>
+
     </div>
   )
 }

@@ -42,16 +42,23 @@ function App() {
     skillsModal: false
   })
 
-  const [section, setSection] = useState(0)
-
   return (
-    <div className="App">
+    <div className="App">    
+      {/* Navigation */}
+      <Nav setModalsOpen={setModalsOpen} modalsOpen={modalsOpen}/>
+
+      {/* Main Content */}
       <Content/>
+
+      {/* Content Modals */}
+      {/* {<About modalsOpen={modalsOpen} setModalsOpen={setModalsOpen}/>} */}
+      {/* {modalsOpen.projectsModal && <About/>}
+      {modalsOpen.skillsModal && <About/>} */}
+
+      {/* Loader */}
       <LoaderScreen />
+
       <ScrollContextProvider>
-      {/* <ScrollHandler/> */}
-      <Nav />
-      {/* <Suspense fallback={<LoaderScreen/>}> */}
         <Canvas
           camera={{
             fov: 45,
@@ -64,18 +71,11 @@ function App() {
           {/* <axesHelper /> */}
           {/* <OrbitControls /> */}
           <ambientLight color="white"/>
-          {/* <Environment preset="studio"/> */}
           <color attach="background" args={["black"]} id="controls"/>
           <Camera/>
           <ScrollControls pages={4}>
-            {/* MODELS */}
-            {/* <Particles /> */}
             <Sun/>
-
             <Scene />
-
-            {/* REACT | HTML */}
-            
             <Scroll 
               html
               style={{ 
@@ -89,9 +89,9 @@ function App() {
             >
               <ScrollHandler/>
             </Scroll>
-            
           </ScrollControls>
-          {/* HORIZON */}
+
+          {/* HORIZON AND FOG */}
           <Horizon/>
           <fog attach="fog" args={['#262837', 2, 9.7]} />
           <color attach="background" args={["#262837"]} />

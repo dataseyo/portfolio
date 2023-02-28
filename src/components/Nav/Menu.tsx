@@ -11,32 +11,95 @@ import { MenuButton } from './MenuButton'
 const contentVariant = {
     hidden: {
         opacity: 0,
-        x: 50
+        x: "100vw"
     },
     show: {
         opacity: 1,
-        x: 0
-    }
+        x: 0,
+        transition: {
+            type: "spring",
+            // staggerChildren: 0.1,
+            // delayChildren: 0.3,
+            bounce: 1,
+            damping: 15
+    }}
 }
 
 const container = {
     hidden: {  },
     show: {
         // rotate: 360,
-        transition: {
-            staggerChildren: 0.1,
-            delayChildren: 0.3,
-        },
+
     },
 }
 
 
 type Props = {
     menuOpen: boolean,
-    setMenuOpen: (value: React.SetStateAction<boolean>) => void 
+    setMenuOpen: (value: React.SetStateAction<boolean>) => void,
+    modalOpen: {
+        aboutModal: boolean,
+        projectsModal: boolean,
+        skillsModal: boolean
+      },
+      setModalOpen: React.Dispatch<React.SetStateAction<{
+        aboutModal: boolean;
+        projectsModal: boolean;
+        skillsModal: boolean;
+    }>>
 }
 
-const Menu = ({menuOpen, setMenuOpen} : Props) => {
+const Menu = ({menuOpen, setMenuOpen, modalOpen, setModalOpen} : Props) => {
+      // MODALS
+    const controlModal = (type: string) => {
+        switch(type) {
+        case "about": 
+            if (modalOpen.aboutModal) {
+            return setModalOpen(prev => ({
+                ...prev,
+                aboutModal: false
+            }))
+            } else {
+            return setModalOpen(prev => ({
+                ...prev,
+                aboutModal: true,
+                projectsModal: false,
+                skillsModal: false
+            }))
+            }
+
+        case "projects": 
+            if (modalOpen.projectsModal) {
+            return setModalOpen(prev => ({
+                ...prev,
+                projectsModal: false,
+            }))
+            } else {
+            return setModalOpen(prev => ({
+                ...prev,
+                aboutModal: false,
+                projectsModal: true,
+                skillsModal: false
+            }))
+            }
+
+        case "skills": 
+            if (modalOpen.skillsModal) {
+            return setModalOpen(prev => ({
+                ...prev,
+                skillsModal: false
+            }))
+            } else {
+            return setModalOpen(prev => ({
+                ...prev,
+                aboutModal: false,
+                projectsModal: false,
+                skillsModal: true
+            }))
+            }
+        }
+    }
+
     return (
         <motion.div 
             className="menu__container"
@@ -44,6 +107,7 @@ const Menu = ({menuOpen, setMenuOpen} : Props) => {
             // onClick={() => setMenuOpen(!menuOpen)}
             variants={container}
             initial="hidden"
+            transition={{ type: "spring", stiffness: 1000 }}
         >
 
             {/* MENU ICON */}
@@ -59,9 +123,24 @@ const Menu = ({menuOpen, setMenuOpen} : Props) => {
 
             {/* MENU CONTENT */}
             <motion.div variants={contentVariant} className="menu-content">
-                <motion.p className="menu-text">About</motion.p>
-                <motion.p className="menu-text">Projects</motion.p>
-                <motion.p className="menu-text">Skills</motion.p>
+                <motion.p 
+                    className="menu-text" 
+                    onClick={() => controlModal("about")}
+                >
+                    About
+                </motion.p>
+                <motion.p 
+                    className="menu-text" 
+                    onClick={() => controlModal("projects")}
+                >
+                    Projects
+                </motion.p>
+                <motion.p 
+                    className="menu-text" 
+                    onClick={() => controlModal("skills")}    
+                >
+                    Skills
+                </motion.p>
                 <motion.div 
                     className="menu-text"
                     style={{

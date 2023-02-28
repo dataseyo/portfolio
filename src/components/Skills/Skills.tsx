@@ -1,40 +1,59 @@
+// external imports
 import React, { useEffect, useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
-import { useScrollContext } from '../../context/ScrollContext'
+import { motion } from 'framer-motion'
 
+// internal imports
 import './styles.css'
 
 type Modal = {
-    set: React.Dispatch<React.SetStateAction<{
-        aboutClosed: boolean;
-        projectsClosed: boolean;
-        skillsClosed: boolean;
-    }>>
+  modalOpen: {
+    aboutModal: boolean,
+    projectsModal: boolean,
+    skillsModal: boolean
+  },
+  setModalOpen: React.Dispatch<React.SetStateAction<{
+    aboutModal: boolean;
+    projectsModal: boolean;
+    skillsModal: boolean;
+}>>
 }
 
-const Skills = ({set}: Modal) => {
-  const [closed, setClosed] = useState(false)
-  const closeHero = () => {
-    // setClosed(true)
-    // console.log("closed")
-    set(prev => ({
+const contentVariant = {
+  hidden: {
+      opacity: 0,
+      width: 0
+      // x: "100vw",
+  },
+  show: {
+      opacity: 1,
+      // x: 0,
+      width: "100vw",
+      zIndex: 1000
+  },
+
+}
+
+const Skills = ({modalOpen, setModalOpen}: Modal) => {
+  const closeAbout = () => {
+    setModalOpen(prev => ({
         ...prev,
-        skillsClosed: true
+        skillsModal: false
     }))
   }
 
-  const scroll = useScrollContext()
-
   return (
-    <div className="hero__container" style={{zIndex: closed ? 0 : 6000}}>
-        <div className="hero-background">
-          <div className="hero-header">
-            <h1 className="hero-title">Skills</h1>
-            <IoMdClose className="hero-icon" onClick={() => closeHero()}/>
-          </div>
-            
-        </div>
-    </div>
+    <motion.div 
+      className="skills__container"
+      animate={modalOpen.skillsModal ? "show" : "hidden"}
+      // onClick={() => setMenuOpen(!menuOpen)}
+      variants={contentVariant}
+      initial="hidden"
+      // exit="hidden"
+    >
+      <h1>Skills</h1>
+      
+    </motion.div>
   )
 }
 
