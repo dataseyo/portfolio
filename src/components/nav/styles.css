@@ -1,0 +1,115 @@
+/* NAV AND MENU */
+.nav {
+}
+
+/* NAVBAR */
+.nav__container {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2000;
+    width: 100%;
+}
+
+.nav-scroll {
+    backdrop-filter: blur( 5px );
+    -webkit-backdrop-filter: blur( 5px );
+}
+
+.nav-title {
+    margin: 8px;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.nav-title h1 {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    margin: 8px;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-family: 'Merriweather', serif;
+    font-size: clamp(1rem, 2rem, 2.5rem);
+    opacity: 1;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: row;
+    margin: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-menu-item {
+    margin-right: 20px;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.nav-menu-item:active {
+    text-decoration: underline;
+}
+
+/* MENU */
+.menu__container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    height: 250px;
+    width: 80px;
+    margin-top: 18px;
+    /* margin-top: -4px; */
+    z-index: 2000;
+}
+
+.menu-icon {
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.menu-text {
+    color: white;
+    font-weight: bolder;
+    margin: 0px;
+    margin-bottom: 10px;
+    font-size: 1.55rem;
+    cursor: pointer;
+}
+
+.menu-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-right: 25px;
+    /* background-color: rgba(0,0,0,0.58); */
+    border-radius: 5px;
+    backdrop-filter: blur( .8px );
+    -webkit-backdrop-filter: blur( .8px );
+}
+
+.menu-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.menu-link:visited {
+    color: white;
+}

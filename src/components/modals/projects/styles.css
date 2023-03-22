@@ -1,0 +1,11 @@
+.projects__container {
+    position: fixed;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-stop: always;
+    background-color: #262837;
+    z-index: 1;
+}
