@@ -11,7 +11,9 @@
 
 ## Foreground Model and Interaction
 
-The foreground model consumes a scroll event from the Drei useScroll helper, and updates its rotation based on the scroll offset. The content animates when in (scroll) view to appear on screen. 
+I used a restricted and inverted Orbit Controls to rotate around the scene, and a Zustand store that updates with a change in camera angle. Text is rendered and animated in when the angle reaches a predefined value. 
+
+~~The foreground model consumes a scroll event from the Drei useScroll helper, and updates its rotation based on the scroll offset. The content animates when in (scroll) view to appear on screen.~~
 
 ## GLSL Shaders with React Three Fiber
 

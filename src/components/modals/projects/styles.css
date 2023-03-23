@@ -9,3 +9,15 @@
     background-color: #262837;
     z-index: 1;
 }
+
+.projects-title {
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    font-size: clamp(3rem, 3.5rem, 4rem);
+    margin-left: 8px;
+    margin-bottom: 0px;
+    text-shadow: 4px 4px 32px rgba(0,0,0,0.58);
+    position: relative;
+    top: 0;
+    margin-top: 0px;
+}

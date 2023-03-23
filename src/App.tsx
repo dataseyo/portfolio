@@ -59,7 +59,6 @@ function App() {
         <ambientLight intensity={1} color={"#435058"}/>
         <DragHandler/>
         <Preload all />
-
         <OrbitControls 
           makeDefault
           target={[0, 1, 0]}
@@ -67,6 +66,7 @@ function App() {
           minPolarAngle={1.55}
           enableZoom={false}
           enablePan={false}
+          rotateSpeed={-1}
           />
         {/* <OrbitControls    /> */}
 
@@ -74,9 +74,6 @@ function App() {
         {/* MODELS */}
         <Scene/>
         <Lantern/>
-        <Preload all />
-
-        {/* <Light/> */}
         {/* <Sun/> */}
 
         {/* HORIZON AND FOG */}

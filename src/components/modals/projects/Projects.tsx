@@ -52,7 +52,7 @@ const Projects = ({modalOpen, setModalOpen}: Modal) => {
       initial="hidden"
       // exit="hidden"
     >
-      <h1>Projects</h1>
+      <h1 className="projects-title">Projects</h1>
       
     </motion.div>
   )

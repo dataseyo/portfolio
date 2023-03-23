@@ -1,9 +1,11 @@
-import { Ground } from "./Ground";
 import Lantern from './Lantern'
 import { Scene } from './Scene'
+import Forest from './forest/Forest'
+import Portal from './Portal'
 
 export {
-    Ground,
     Lantern,
     Scene,
+    Forest,
+    Portal
 }
