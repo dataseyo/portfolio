@@ -25,6 +25,7 @@ const DragHandler = () => {
       // convert to angle btw -3.14 and + 3.14
       const camAngle = Math.atan2(direcRef.current.x, direcRef.current.z)
       setAngle(camAngle)
+      // console.log(camAngle)
   
       if (camAngle < -3 || camAngle > 2.8) {
         setSection(0)
@@ -36,17 +37,17 @@ const DragHandler = () => {
         // console.log("1")
       } 
   
-      if (camAngle <= 2 && camAngle > 1) {
-        setSection(2)
+      if (camAngle <= 2 && camAngle > 1.6) {
+        setSection(1)
         // console.log("2")
       } 
   
-      if (camAngle <= 1 && camAngle > -1) {
+      if (camAngle <= 1.6 && camAngle > -0.2) {
         setSection(3)
         // console.log("3")
       } 
   
-      if (camAngle <= -1 && camAngle > -2) {
+      if (camAngle <= -0.2 && camAngle > -2) {
         setSection(4)
         // console.log("4")
       } 

@@ -10,7 +10,8 @@ import useScreenSize from '../../hooks/useScreenSize'
 import Menu from './Menu'
 import {
   About,
-  Projects
+  Projects,
+  Skills
 } from '../modals/index'
 
 const Nav = () => {
@@ -142,7 +143,7 @@ const Nav = () => {
     {/* Content */}
     <About modalOpen={modalOpen} setModalOpen={setModalOpen}/>
     <Projects modalOpen={modalOpen} setModalOpen={setModalOpen}/>
-    {/* <Skills modalOpen={modalOpen} setModalOpen={setModalOpen}/> */}
+    <Skills modalOpen={modalOpen} setModalOpen={setModalOpen}/>
 
     </div>
   )

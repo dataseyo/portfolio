@@ -144,7 +144,7 @@ const Content = () => {
                         lineHeight: "clamp(1.8rem, 2rem, 2.5rem)"
                     }}
                 >
-                    My work spans from using Python for deep learning to React, Node, and many other technologies and domains.
+                    My work spans from computational modeling and machine learning to full stack development and 3D scene creation.
                 </p>
         </motion.div>
         }
@@ -174,7 +174,7 @@ const Content = () => {
                         lineHeight: "clamp(1.8rem, 2rem, 2.5rem)"
                     }}
                 >
-                    Feel free to reach out if you'd like to collaborate!
+                    I use React with typescript, Python, Node, C++, and other tools and languages to build applications. 
                 </p>
         </motion.div>
         }

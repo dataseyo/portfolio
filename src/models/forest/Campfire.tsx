@@ -5,7 +5,7 @@ Command: npx gltfjsx@6.1.4 Campfire.glb -t -- --transform
 
 import * as THREE from 'three'
 import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
+import { useGLTF, useHelper } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 
 type GLTFResult = GLTF & {
@@ -16,12 +16,20 @@ type GLTFResult = GLTF & {
     None: THREE.MeshStandardMaterial
   }
 }
-
 export function Campfire(props: JSX.IntrinsicElements['group']) {
+  // const light = useRef<any>()
+  // useHelper(light, THREE.PointLightHelper, 1, "blue")
   const { nodes, materials } = useGLTF('/Campfire.glb') as GLTFResult
   return (
     <group {...props} dispose={null} position={[-45.2, .29, -6]} scale={0.6}>
       <mesh geometry={nodes.campfire.geometry} material={materials.None}/>
+      <pointLight
+        // ref={light}
+        intensity={7}
+        distance={2.1}
+        color={"#FF7700"}
+        position={[-.1, .2, -.5]}
+      />
     </group>
   )
 }

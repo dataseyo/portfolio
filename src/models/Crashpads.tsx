@@ -31,7 +31,7 @@ type GLTFResult = GLTF & {
 export function Crashpads(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/crashpads.glb') as GLTFResult
   return (
-    <group {...props} dispose={null} scale={0.36} position={[7, -.25, 1.14]}>
+    <group {...props} dispose={null} scale={0.36} position={[7, -.15, -.42]}>
       
       <group rotation={[0, -1.5, 0]} position={[10, 0, -4]}>
       <group position={[5.25, 1.17, 4.82]} rotation={[0, 0, -Math.PI / 2]} scale={[0.11, 0.84, 1]}>
@@ -42,7 +42,7 @@ export function Crashpads(props: JSX.IntrinsicElements['group']) {
       <mesh geometry={nodes.Cube.geometry} material={materials.WOOD} position={[3.78, 1.79, 4.8]} rotation={[0, 0, 0.54]} scale={[-0.04, 1.02, 1.23]} />
       </group>
       
-      <group position={[-3, 0, 1.2]} rotation={[0, -.3, 0]}>
+      <group position={[-3, 0, 1.59]} rotation={[0, -.23, 0]}>
       <group position={[5.29, 1.17, 1.34]} rotation={[0, 0, -Math.PI / 2]} scale={[0.11, 0.84, 1]}>
         <mesh geometry={nodes.Cube005.geometry} material={materials.pad1} />
         <mesh geometry={nodes.Cube005_1.geometry} material={materials.pad2} />
@@ -51,7 +51,7 @@ export function Crashpads(props: JSX.IntrinsicElements['group']) {
       <mesh geometry={nodes.Cube003.geometry} material={materials.WOOD} position={[3.82, 1.79, 1.32]} rotation={[0, 0, 0.54]} scale={[-0.04, 1.02, 1.23]} />
       </group>
 
-      <group position={[-1.2, 0, 11.2]} rotation={[0, .8, 0]}>
+      <group position={[-1.2, .4, 11.2]} rotation={[-.1, .8, 0]}>
       <group position={[5.29, 1.17, 1.34]} rotation={[0, 0, -Math.PI / 2]} scale={[0.11, 0.84, 1]}>
         <mesh geometry={nodes.Cube005.geometry} material={materials.pad1} />
         <mesh geometry={nodes.Cube005_1.geometry} material={materials.pad2} />

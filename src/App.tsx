@@ -8,7 +8,9 @@ import * as THREE from 'three'
 import './App.css'
 import { 
   Scene,
-  Lantern
+  Lantern,
+  Scene1,
+  Portal
 } from './models'
 import { 
   Content,
@@ -72,8 +74,9 @@ function App() {
 
 
         {/* MODELS */}
-        <Scene/>
+        {/* <Scene/> */}
         <Lantern/>
+        <Scene1/>
         {/* <Sun/> */}
 
         {/* HORIZON AND FOG */}
