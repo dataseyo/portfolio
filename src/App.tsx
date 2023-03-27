@@ -9,15 +9,13 @@ import './App.css'
 import { 
   Scene,
   Lantern,
-  Scene1,
-  Portal
+  Scene1
 } from './models'
 import { 
   Content,
   LoaderScreen,
   Nav
 } from './components'
-import Sun from './shaders/sun/Sun'
 import DragHandler from './utils/DragHandler'
 
 const Camera = () => {
@@ -74,10 +72,8 @@ function App() {
 
 
         {/* MODELS */}
-        {/* <Scene/> */}
         <Lantern/>
         <Scene1/>
-        {/* <Sun/> */}
 
         {/* HORIZON AND FOG */}
         <fog attach="fog" args={['#262837', 5, 12]} />

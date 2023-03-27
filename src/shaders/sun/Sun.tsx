@@ -42,25 +42,38 @@ const Sun = () => {
     const groupRef = useRef<any>()
 
     useFrame((state) => {
-        const { clock, camera, viewport } = state
+        const { clock } = state
+        const { viewport } = state
         uniforms.u_time.value = clock.getElapsedTime()
 
         if (groupRef.current) {
             // groupRef.current.position.x = -viewport.width / 4.0 - 0.5
-            groupRef.current.position.z = viewport.height / 4.0 + 0.7
-
-            groupRef.current.position.set(0, -2, 0)
-            var vec = new THREE.Vector3(0, 1, 0)
-            vec.applyQuaternion(camera.quaternion)
-            groupRef.current.position.copy(vec)  
-
+            // groupRef.current.position.z = viewport.height / 4.0 + 0.7
         }
-
-        // drag value
     })
 
+
+    // useFrame((state) => {
+    //     const { clock, camera, viewport } = state
+    //     uniforms.u_time.value = clock.getElapsedTime()
+
+        
+
+    //     if (groupRef.current) {
+    //         // groupRef.current.position.x = -viewport.width / 4.0 - 0.5
+    //         groupRef.current.position.z = viewport.height / 4.0 + 0.7
+
+    //         groupRef.current.position.set(0, -2, 0)
+    //         var vec = new THREE.Vector3(0, 1, 0)
+    //         vec.applyQuaternion(camera.quaternion)
+    //         groupRef.current.position.copy(vec)  
+    //     }
+
+    //     // drag value
+    // })
+
   return (
-    <group ref={groupRef}>
+    <group ref={groupRef}  position={[0, 1.1, 0]}>
         <points>
         <bufferGeometry>
             <bufferAttribute

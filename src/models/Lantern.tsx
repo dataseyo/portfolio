@@ -7,7 +7,6 @@ import { useHelper, SpotLight } from "@react-three/drei"
 // internal
 import useSectionStore from '../state/useDragState'
 import useScreenSize from "../hooks/useScreenSize"
-import { lerp } from "three/src/math/MathUtils"
 
 const Lantern = () => {
     const targetRef = useRef<any>()
