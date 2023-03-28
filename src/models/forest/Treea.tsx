@@ -27,13 +27,18 @@ export function Treea(props: JSX.IntrinsicElements['group']) {
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]} position={[-44, 0, -4]}>
         <Instances limit={10} range={100} geometry={nodes.mff_tree_pine_1_0.geometry} material={materials.medievalfantasyforest_unwrap}>
-          {/* <Instance position={[4, 4, 0.2]} rotation={[0, .1, 1]}/>
-          <Instance position={[3, 4, 0.1]} rotation={[0, 0, 0]} scale={.9}/>
-          <Instance position={[4, 1.8, 0.2]} rotation={[0, -.08, .9]} scale={1.1}/>
+          <Instance position={[6, 4.5, 0.4]} rotation={[0, .1, 1.5]}/>
+          <Instance position={[6, 6, 0.5]} rotation={[0, 0, .2]} scale={1.05}/>
+          <Instance position={[9, 12.2, 0.5]} rotation={[0, 0, .2]} scale={1}/>
+
+
+          {/* <Instance position={[4, 1.8, 0.2]} rotation={[0, -.08, .9]} scale={1.1}/>
           <Instance position={[4, 4, 0.2]} rotation={[0, .1, 0]}/>
-          <Instance position={[4, 4, 0.2]} rotation={[0, .1, 0]}/>
+          <Instance position={[-6, 2.8, 0.2]} rotation={[0, -.06, 0]}/>
           <Instance position={[3, -.7, .6]} rotation={[0, .1, 0]} scale={0.92}/>
-          <Instance position={[-.48, -.7, 0]} rotation={[0, .1, 0]} scale={0.92}/> */}
+          <Instance position={[-.48, -.7, 0]} rotation={[0, .1, 0]} scale={0.92}/>
+          <Instance position={[-2, -1, 0]} rotation={[0, -.01, 0]}/>
+          <Instance position={[-4, 0.1, 0.2]} rotation={[0, -.06, 0]}/> */}
 
 
 

@@ -27,9 +27,16 @@ export function Grass(props: JSX.IntrinsicElements['group']) {
     <group {...props} dispose={null} position={[-10, 0, -10]}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <Instances limit={20} range={100} geometry={nodes.mff_grass_patch_1_0.geometry} material={materials.medievalfantasyforest_unwrap}>
-          {/* <Instance  position={[-29.86, -1.16, .24]}/>
+          <Instance  position={[-27.86, .6, .45]}/>
           <Instance  position={[-28.6, -1, .5]}/>
-          <Instance  position={[-30.86, -2.86, .15]}/>
+          <Instance  position={[-26.6, 4, 0.34]}/>
+          <Instance  position={[-26.6, 6, 0.12]}/>
+          <Instance  position={[-25.6, 6.9, 0.4]}/>
+          <Instance  position={[-27.86, 4.9, -.01]} rotation={[0, 0, 2]}/>
+          <Instance  position={[-27.86, -2.8, .7]}/>
+
+
+          {/* <Instance  position={[-30.86, -2.86, .15]}/>
           <Instance  position={[-29, -1.86, .3]}/>
           <Instance  position={[-31.8, -1, -.1]}/>
           <Instance  position={[-33.8, -1, -.1]}/>

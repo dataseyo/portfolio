@@ -27,9 +27,9 @@ export function Treeb(props: JSX.IntrinsicElements['group']) {
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]} position={[-43, 0, -7]} >
         <Instances limit={10} range={100} geometry={nodes.mff_tree_pine_2_0.geometry} material={materials.medievalfantasyforest_unwrap} >
-          {/* <Instance position={[3, -2, .4]} rotation={[0, 0, .8]} scale={1.21}/>
-          <Instance position={[-1, -2, -.11]} rotation={[0, 0, .8]} scale={1.21}/>
-          <Instance position={[3.4, 2, .7]} rotation={[0, 0, .2]} scale={.92}/> */}
+          <Instance position={[4, 1.4, 0.5]} rotation={[-.1, 0, 0]} scale={.92}/>
+          <Instance position={[6, 8.6, .35]} rotation={[0, 0, 0]} scale={1}/>
+
 
           {/* old */}
           <Instance/>
